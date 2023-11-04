@@ -1,0 +1,7 @@
+.card--style {
+  background-color: white;
+  color: black;
+}
+.card--style:hover {
+  box-shadow: 0 0rem 1.5rem #ba8c48;
+}

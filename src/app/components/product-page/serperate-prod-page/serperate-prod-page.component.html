@@ -1,0 +1,71 @@
+<body class="h-screen bg-black overflow-y-hidden">
+  <div *ngIf="loading">
+    <p class="text-black">Loading</p>
+  </div>
+  <div
+    *ngIf="!loading"
+    class="flex flex-col h-max mx-10 mt-10 rounded-[11px] bg-white overflow-hidden lg:flex-row card transition-all ease-out delay-200 duration-300"
+  >
+    <img
+      [src]="product.imageUrl"
+      class="h-[14rem] w-full hover:scale-110 transition-all ease-out delay-200 duration-300 lg:w-[20rem] lg:h-full 2xl:w-[30rem]"
+    />
+    <div
+      class="font-Inter font-medium flex justify-center ml-8 flex-col h-full lg:ml-10 lg:mr-6"
+    >
+      <p
+        class="text-2xl my-3 font-bold text-brownHover font-Cabin 2xl:text-5xl 2xl:my-8"
+      >
+        {{ product.name }}
+      </p>
+
+      <div class="flex items-center gap-2 w-72 sm:w-full">
+        <p class="mb-8 text-xl text-left 2xl:text-2xl">
+          {{ product.description }}
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATFJREFUSEu11btKRDEQxvHfItjZC4Kdggo+i4iPIIiKpZU3EC+NpbfOB/BpBK20tNPKSlBQBnYlrCcn2dWd8uSb759MZnI6RhydEftLASs4xFwL9BlXOKndWAp4wHxlYkA2arQp4KsmIdFUQXKAW+xgDKdYysCLkBxgBk9d00XctZyuFZIDzOKxa7qA+0L5spC2Eu1jHAdYrrifS2z26/5yyU3MXyf5b0BAj7Hbo6eAN0xUlKIkecc0XkKYAtZwXcquWP/AVBMgcmM6LypM2iRH2GsqUe/bOqIjholzbKWJudd0GMgZttvatH9tEEi8wjEvv6L0P6iBxK5j941RAkRSGyTqHXXPRg0gByma989BqWtWk+6KmbkpJQwKCP0kPvFaYz4MoNb3R1d7BwMb9xK+AZeFMxmLcjjJAAAAAElFTkSuQmCC"
+          class="h-5 w-5 mb-1 2xl:h-8 2xl:w-8"
+        />
+        <p class="mb-3 text-xl 2xl:text-2xl">₹{{ product.price }}</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKtJREFUSEvt1M0JAkEMhuFn1S4EwYNnsQ5tSI+CRWkRVuBBwTb8YcCFZWXcUXc8LOYWJvk+8oZMIXMUmfX9DRoJdwfRAmvMGmdOK9hjiV2J6IxhWm9y1QGT0uCGCwaP9pCHqL5/lP/U4Ip+zgkCll6EcB1ZvSyKtIrolUHyZusEYkt8VzA6UWlwwuhb1Vr/EePSYI4Npi2ZhENbYdudv6glMs8yf0SNaLMjugObZikZAhQglQAAAABJRU5ErkJggg=="
+          class="h-5 w-5 mb-3 2xl:h-8 2xl:w-8"
+        />
+        <p class="mb-3 text-xl 2xl:text-2xl">
+          {{ product.height }}cm X {{ product.width }}cm
+        </p>
+      </div>
+      <div
+        class="flex flex-row w-[17rem] justify-between items-center mb-10 mt-3 sm:w-[30rem] md:w-[38rem] 2xl:mt-32 2xl:w-full"
+      >
+        <div class="flex items-center gap-2">
+          <button
+            class="bg-Brown px-3 py-1 rounded-3xl font-semibold text-lg btn transition-all ease-out delay-200 duration-300 2xl:text-xl"
+          >
+            Add to Cart
+          </button>
+        </div>
+        <div class="flex items-center gap-2">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAT1JREFUSEvN1CEsRlEYxvHfNyMQbaaZTBNIkiJogsJIhqIwySbaREwwQzFBExRBMoJEUBTFRjCbYAI7du929+377j1cn3nLDec57/8853nPrWhwVRrc358CPhI3r9jG/G+4yzpIAWnfIZyWhdS6okWs4hgjjQC04wFN6MJ9GUi9kPcxXqLxIcbC/nqAAZyXANygNw8Q1q7Rg0nsRcKCbgJLSY6572AaW7hEfwSgDU9oQSceixy0JqLw7cNVAWQKOzjBcKotesnrmMMuQoO8OsNgEm4I+auKACGDkMUbOvBSh9CNOzwnuvdYQNClJ1vAWh3ACpaTzGaymiIHQRvm+SAi5CAJ433xXUAzbhGuIa+OMFotiHEQefjasljABmaxmUxVtlveWuEUpY2yv/LqQ+WtRQMa7uDHOcRm8H8Bn2QFNRlXu2umAAAAAElFTkSuQmCC"
+            class="h-5 w-5 2xl:h-8 2xl:w-8"
+          />
+          <p
+            class="text-xl 2xl:text-3xl"
+            [ngStyle]="{
+              fontWeight: 'bold',
+              color: product.available ? 'green' : 'red'
+            }"
+          >
+            {{ product.available ? "Available" : "Not Available" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
