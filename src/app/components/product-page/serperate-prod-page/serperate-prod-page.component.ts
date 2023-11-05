@@ -9,7 +9,7 @@ import { async } from 'rxjs';
 })
 export class SerperateProdPageComponent implements OnInit {
   product: any;
-  productId: any;
+  productId: number | any;
   loading: boolean = false;
   constructor(private activatedRoute: ActivatedRoute) {}
   async ngOnInit(): Promise<void> {
@@ -17,6 +17,7 @@ export class SerperateProdPageComponent implements OnInit {
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     const data = await this.fetchData();
     this.product = data.find((x) => x.id == this.productId);
+
     this.loading = false;
   }
 
@@ -26,5 +27,28 @@ export class SerperateProdPageComponent implements OnInit {
     );
 
     return await response.json();
+  }
+  addItem() {
+    const isPresent = localStorage.getItem(JSON.stringify(this.productId));
+    if (isPresent) {
+      const curProd = JSON.parse(isPresent);
+      var updatedProd = {
+        ...curProd,
+        quantity: curProd.quantity + 1,
+      };
+      localStorage.setItem(
+        JSON.stringify(this.productId),
+        JSON.stringify(updatedProd)
+      );
+    } else {
+      var updatedProd = {
+        ...this.product,
+        quantity: 1,
+      };
+      localStorage.setItem(
+        JSON.stringify(this.productId),
+        JSON.stringify(updatedProd)
+      );
+    }
   }
 }

@@ -1,1 +1,58 @@
-<p>login works!</p>
+<body
+  class="bg-black h-[160vh] sm:h-[180vh] lg:h-[220vh] xl:h-[280vh] 2xl:h-[130vh] md:h-[200vh] font-Inter"
+>
+  <div class="flex flex-col">
+    <h1 class="text-white text-center mt-6 text-4xl font-semibold">Cart</h1>
+    <div class="xl:flex flex-row">
+      <div
+        class="flex flex-col w-4/5 h-max text-black justify-center bg-white my-10 mx-auto items-start p-6 rounded-[11px] xl:w-9/12 card 2xl:ml-14"
+      >
+        <div *ngIf="isCartEmpty()">
+          <p class="text-2xl font-medium">Your cart is Empty! ☹️</p>
+        </div>
+        <div
+          *ngIf="!isCartEmpty()"
+          class="flex flex-col gap-8 2xl:grid 2xl:grid-cols-2 2xl:gap-8"
+        >
+          <div
+            *ngFor="let product of cart"
+            class="flex flex-rol w-full justify-start gap-6 xl:gap-12"
+          >
+            <img
+              src="{{ product.imageUrl }}"
+              class="h-[8rem] self-center w-[6rem] sm:h-[14rem] sm:w-[12rem] xl:h-[18rem] xl:w-[16rem]"
+            />
+
+            <div>
+              <p class="text-xl sm:text-2xl sm:mb-1 xl:text-3xl xl:mb-3">
+                <strong class="font-medium">Name:</strong> {{ product.name }}
+              </p>
+              <p class="text-xl sm:text-2xl sm:mb-1 xl:text-3xl xl:mb-3">
+                <strong class="font-medium">Quantity:</strong>
+                {{ product.quantity }}
+              </p>
+              <p class="text-xl sm:text-2xl sm:mb-1 xl:text-3xl xl:mb-3">
+                <strong class="font-medium">Price:</strong> ₹{{ product.price }}
+              </p>
+              <button
+                (click)="removeProd(product)"
+                class="text-lg sm:text-xl mt-6 sm:mt-20 xl:text-2xl xl:font-medium bg-red-500 px-2 py-0 xl:px-6 xl:py-2 rounded-lg hover:bg-red-700 transition-all ease-in-out duration-200 delay-150"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-center h-14 w-full rounded-[11px] xl:w-[40rem] xl:mt-10"
+      >
+        <p
+          class="w-full h-full text-white text-2xl mx-10 sm:mx-16 xl:mx-10 xl:text-4xl"
+        >
+          <strong class="font-semibold">Total Price: </strong>₹{{ totalPrice }}
+        </p>
+      </div>
+    </div>
+  </div>
+</body>

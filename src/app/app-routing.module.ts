@@ -7,7 +7,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { SerperateProdPageComponent } from './components/product-page/serperate-prod-page/serperate-prod-page.component';
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'cart', component: LoginComponent },
   { path: 'main', component: WebsiteHeaderComponent },
   { path: 'product', component: ProductPageComponent },
   { path: 'about', component: AboutUsComponent },

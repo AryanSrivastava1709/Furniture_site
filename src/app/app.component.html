@@ -1,7 +1,11 @@
 <header
   class="header flex h-12 items-center place-content-between border-b-[1px] border-[#dee2e6] md:h-16 bg-backgroundColor"
 >
-  <img src="../../../assets/Logo.png" class="h-10 ml-3 md:h-14 md:ml-5" />
+  <img
+    src="../../../assets/Logo.png"
+    class="h-10 ml-3 md:h-14 md:ml-5 cursor-pointer"
+    routerLink="./main"
+  />
   <nav
     class="flex gap-3 text-sm font-Roboto font-normal items-center cursor-pointer md:text-xl md:gap-9 md:font-medium text-Brown"
   >
@@ -21,22 +25,17 @@
       class="hover:text-white transition ease-in-out delay-150 duration-300 focus:text-white"
       routerLink="./about"
       (click)="onClick(true)"
+      [style.margin-right]="!hide ? '30px' : '0px'"
       >About</a
     >
-    <a
-      class="hover:text-white transition ease-in-out delay-150 duration-300 focus:text-white"
-      routerLink="./contact"
-      [style.margin-right]="!hide ? '30px' : '0px'"
-      (click)="onClick(true)"
-      >Contact Us</a
-    >
+
     <button
       class="mr-3 bg-Brown text-white px-3 py-1 rounded-md hover:bg-brownHover transition ease-in-out delay-100 duration-300 md:mr-9"
-      routerLink="./login"
+      routerLink="./cart"
       (click)="onClick(false)"
       *ngIf="hide"
     >
-      Log in
+      Cart
     </button>
   </nav>
 </header>
