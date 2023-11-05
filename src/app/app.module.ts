@@ -9,10 +9,25 @@ import { ProductPageComponent } from './components/product-page/product-page.com
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { SerperateProdPageComponent } from './components/product-page/serperate-prod-page/serperate-prod-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, WebsiteHeaderComponent, LoginComponent, ProductPageComponent, AboutUsComponent, ContactUsComponent, SerperateProdPageComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    WebsiteHeaderComponent,
+    LoginComponent,
+    ProductPageComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    SerperateProdPageComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

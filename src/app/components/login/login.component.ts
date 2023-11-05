@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  constructor(private toastr: ToastrService) {}
   loading: boolean = false;
   cart: any[] = [];
   totalPrice: number = 0;
@@ -28,6 +30,9 @@ export class LoginComponent {
       }
     }
     this.loading = false;
+  }
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
   removeProd(key: any) {
     const prodKey = key.id.toString();
