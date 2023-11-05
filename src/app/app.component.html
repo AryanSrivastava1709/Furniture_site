@@ -1,9 +1,9 @@
 <header
-  class="header flex h-12 items-center place-content-between border-b-[1px] border-[#dee2e6] md:h-16 bg-backgroundColor"
+  class="header flex h-20 items-center place-content-between border-b-[1px] border-[#dee2e6] bg-backgroundColor sticky top-0 z-10"
 >
   <img
     src="../../../assets/Logo.png"
-    class="h-10 ml-3 md:h-14 md:ml-5 cursor-pointer"
+    class="h-10 ml-3 my-3 md:h-14 md:ml-5 cursor-pointer"
     routerLink="./main"
   />
   <nav
@@ -40,4 +40,4 @@
   </nav>
 </header>
 
-<router-outlet></router-outlet>
+<router-outlet class="scroll-smooth"></router-outlet>
