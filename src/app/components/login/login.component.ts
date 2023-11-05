@@ -32,7 +32,7 @@ export class LoginComponent {
     this.loading = false;
   }
   showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
+    this.toastr.success('Item removed!', 'Cart Notification!');
   }
   removeProd(key: any) {
     const prodKey = key.id.toString();
