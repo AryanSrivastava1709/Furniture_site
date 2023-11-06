@@ -5,7 +5,9 @@ import { WebsiteHeaderComponent } from './components/website-header/website-head
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { SerperateProdPageComponent } from './components/product-page/serperate-prod-page/serperate-prod-page.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 const routes: Routes = [
+  { path: 'contact', component: ContactUsComponent },
   { path: 'cart', component: LoginComponent },
   { path: 'main', component: WebsiteHeaderComponent },
   { path: 'product', component: ProductPageComponent },

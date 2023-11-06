@@ -11,6 +11,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { SerperateProdPageComponent } from './components/product-page/serperate-prod-page/serperate-prod-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
